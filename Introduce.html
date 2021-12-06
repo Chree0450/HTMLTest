@@ -1,0 +1,267 @@
+<!DOCTYPE html> 
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+  
+    <script type="text/javascript">
+
+		// 取得網址裡的參數 
+		function GetUrlVar(VarName) 
+		{
+		  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		  var regexS = "[\\?&]" + VarName + "=([^&#]*)";
+		  var regex = new RegExp(regexS);
+		  var results = regex.exec(window.location.href);
+		  if (results == null)
+		   	 return "";
+		  else
+			 return results[1];
+		}
+
+		  
+		  // 要先取得網址裡的路徑起點終點經緯度參數 
+		  
+
+		
+    </script>
+	
+	<script>
+		
+		// https://developers.google.com/chart/interactive/docs/quick_start
+		// Load the Visualization API and the corechart package.
+		google.charts.load('current', {'packages':['corechart']});
+
+		// Set a callback to run when the Google Visualization API is loaded.	
+		google.charts.setOnLoadCallback(init);
+
+		function init() {
+		  // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk/copy
+		  // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+		  // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+		  // 也就是將下列的 1QScI5d56Kh-LGywY4WR6EvRGPcalFQYUAdqMxbFVDvk 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+		  var url =
+			'https://docs.google.com/spreadsheets/d/1L6Jn3A9W5CQP6CRmhFF2ZzJB1VW_xWm9OCwe31TomVk/gviz/tq?sheet=工作表1';
+		  var query = new google.visualization.Query(url);
+		  query.setQuery('select *');
+		  query.send(processSheetsData);
+		}	
+		
+	
+	</script>
+  
+  
+  
+    <style>
+      div.a{
+        font-size:40px;
+      }
+      
+
+      
+ 
+       .findYoutubebtn{
+         background-color: #FF0000
+       }
+       .findYoutubebtn.btn:hover {
+           background-color: #b30000
+       }
+      .findYoutubebtn.btn:active {
+          background-color: #FF0000
+       }
+       .findYoutubebtn.btn:visited {
+          background-color: #FF0000
+       }
+      
+      
+      .findTwitterbtn{
+          background-color: #1DA1F2
+      }
+      .findTwitterbtn.btn:hover {
+            background-color: #0b7bc1
+      }
+      .findYoutubebtn.btn:active {
+          background-color: #1DA1F2
+       }
+      .findTwitterbtn.btn:visited {
+          background-color: #1DA1F2
+       }
+    </style>
+  
+  
+  
+</head> 
+
+<body> 
+  
+  <style id="background_color">
+  </style>
+  
+  <nav class="nav">
+      <div class="nav-wrapper">
+        <a href="https://www.youtube.com/channel/UCotXwY6s8pWmuWd_snKYjhg" target="_blank" class="brand-logo" style="font-size:50px">Hololive-EN</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="https://www.youtube.com/channel/UCJFZiqLMntJufDCHc6bQixg" target="_blank">JP</a></li>
+          <li><a href="https://www.youtube.com/c/hololiveIndonesia" target="_blank">ID</a></li>
+          <li><a href="./index.html">HOME</a></li>
+        </ul>
+      </div>
+    </nav>
+  
+  
+  <div class="row">
+    <div class="col s12 m6 l6" id="demo">
+	</div>
+    <div class="col s12 m6 l6 a" id="content">
+       <!--<br><p>誕生日 : 4月4日</p>
+       <p>初配信日 : 202/09/12</p>
+       <p>身長 : 167㎝</p>
+       <p>單位 : Myth</p>
+       <p>繪師 : ゆきさめ</p>
+       <p>粉絲名 : Dead Beats</p>
+       <a class="btn waves-effect waves-light findYoutubebtn" href="https://www.youtube.com/channel/UCL_qhgtOy0dy1Agp8vkySQg" target="_blank">youtube</a>
+       <a class="btn waves-effect waves-light findTwitterbtn" href="https://twitter.com/moricalliope" target="_blank">twitter</a>
+    -->
+    </div>
+
+    
+  </div>
+	
+    
+    
+
+	<script>
+	
+	function processSheetsData(response) {
+		
+		  var data = response.getDataTable();
+
+		
+		  let text = "";
+		  var painter=["ゆきさめ","huke","黒星紅白","甘城なつき","なび","redjuice"];
+		  var info_content=[];
+		  /*
+		  var img;
+      
+			var birthday;
+			
+			var first_delivery;
+			
+			var height;
+			
+			var unit;
+			
+			var painter=["ゆきさめ","huke","黒星紅白","甘城なつき","なび","redjuice"];
+			
+			var fans_name;
+			
+			var img_size;
+			
+			var side_size;
+			
+			var channel_link;
+			
+			var twitter_link;
+			
+			var BColor;
+			
+			var TitleColor;*/
+			
+			var X = decodeURIComponent(GetUrlVar('id'));
+			var i = Number(X);
+			/*
+			for(var i=0;i<=11;i++){
+			img=data.getFormattedValue(i,0);
+			birthday=data.getFormattedValue(i,1);
+			first_delivery=data.getFormattedValue(i,2);
+			height=data.getFormattedValue(i,3);
+			unit=data.getFormattedValue(i,4);
+			fans_name=data.getFormattedValue(i,5);
+			img_size=data.getFormattedValue(i,6);
+			side_size=data.getFormattedValue(i,7);
+			channel_link=data.getFormattedValue(i,8);
+			twitter_link=data.getFormattedValue(i,9);
+			BColor=data.getFormattedValue(i,10);
+			TitleColor=data.getFormattedValue(i,11);
+		}
+		*/
+		for(var r=0 ; r<=11 ; r++){
+			info_content[r]=data.getFormattedValue(i,r);
+		}
+      
+
+	
+    pic="";
+    pic += "<img src='" + info_content[0] + "' width='"+info_content[6]+"%' vspace='100' hspace='"+info_content[7]+"'/>"; 
+    
+    text="";
+    text += '<br><p>誕生日 : '+info_content[1]+'</p>';
+    text += '   <p>初配信日 : '+info_content[2]+'</p>';
+    text += '   <p>身長 : '+info_content[3]+'㎝</p>';
+    text += '   <p>單位 : '+info_content[4]+'</p>';
+    text += '   <p>繪師 : '+painter[i]+'</p>';
+    text += '   <p>粉絲名 : '+info_content[5]+'</p>';
+    text += '   <a class="btn waves-effect waves-light findYoutubebtn" href="'+info_content[8]+'" target="_blank">youtube</a>';
+    text += '   <a class="btn waves-effect waves-light findTwitterbtn" href="'+info_content[9]+'" target="_blank">twitter</a>';
+	
+    background_color="";
+    background_color+="body{background-color: "+info_content[10]+";}";
+    background_color+="nav.nav{background-color: "+info_content[11]+";}";
+    background_color+="footer.page-footer{background-color: "+info_content[11]+";}";
+    
+    document.getElementById("demo").innerHTML = pic;
+	document.getElementById("content").innerHTML = text;
+    document.getElementById("background_color").innerHTML = background_color;
+	}
+  </script>
+
+  
+  
+  
+  
+  
+  
+  
+  <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Hololive-EN 2</h5>
+                <p class="grey-text text-lighten-4">To be continue...</p>
+                <div class="col s12 m4 l6"><img src="https://steamuserimages-a.akamaihd.net/ugc/1687148946914479488/60452124252AC27D85FDAA55C31A9E6C1DFD4B7D/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" width="100%"></div>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">More Information</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="https://www.hololive.tv/" target="_blank">Hololive</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://twitter.com/hololivetv" target="_blank">Twitter-JP</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://twitter.com/hololive_en" target="_blank">Twitter-EN</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://ch.nicovideo.jp/hololive" target="_blank">niconico</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.reddit.com/r/Hololive/" target="_blank">Reddit</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/hololivetv/" target="_blank">Facebook</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2021 Copyright 
+            </div>
+          </div>
+    </footer>
+
+</body>
+
+</html>
